@@ -1,3 +1,5 @@
+#Important functions used for Computational Chemistry Class Assignment 
+
 import numpy as np
 import math
 
