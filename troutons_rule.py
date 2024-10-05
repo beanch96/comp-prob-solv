@@ -1,5 +1,5 @@
 #This script extracts thermodynamic from a csv file, classify the data, plot it, fit a linear
-#regression analysis with its respective confidence 
+#regression analysis with its respective confidence interval
 
 import Functions as fn
 import numpy as np
