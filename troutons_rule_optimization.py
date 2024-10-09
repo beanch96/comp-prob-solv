@@ -41,10 +41,6 @@ optimal_slope, optimal_intercept = result.x
 print(f"Optimal Slope (a): {optimal_slope}")
 print(f"Optimal Intercept (b): {optimal_intercept}")
 
-# # Compare with linear regression results (assuming you've already computed slope1 and int1)
-# print(f"Linear Regression Slope: {slope1}")
-# print(f"Linear Regression Intercept: {int1}")
-
 #For plot convenience, determine sign of intercept y=mx+/-b
 if optimal_intercept<0:
     sign="-"
