@@ -119,7 +119,7 @@ df.to_csv('homework-4-2/Energies_vs_Temperature.csv', index=False)
 print("CSV file 'Energies_vs_Temperature.csv' created successfully.")
 
 #---------------Create Plots----------------------------------------------------------------------------------------------#
-plt.figure(figsize=(8, 6))
+plt.figure(figsize=(6, 4))
 plt.plot(T, U_SOC_CFS, color='green',label='U-SOC&CFS')
 plt.plot(T,U_NO_SOC,color="blue",label='U-Isolated')
 plt.plot(T,U_SOC,"--",color="brown",label='U-SOC')
@@ -154,7 +154,7 @@ plt.savefig(plot_filename)
 print("Free Energy comparison Plot saved to Directory:", directory)
 
 
-plt.figure(figsize=(6, 4))
+plt.figure(figsize=(8, 6))
 plt.plot(T, S_SOC_CFS, color='green',label='S-SOC&CFS')
 plt.plot(T,S_NO_SOC,color="blue",label='S-Isolated')
 plt.plot(T,S_SOC,"--",color="brown",label='S-SOC')
