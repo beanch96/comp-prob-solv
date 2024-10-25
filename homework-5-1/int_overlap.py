@@ -7,9 +7,9 @@ def psi_2p_z(x,y,z):
     Calculate the wavefunction of the 2p_z orbital at a given point (x, y, z).
 
     Parameters:
-     x (float or np.array) : x-coordinate of the points at which to evaluate the 2p_z wavefunction.
-     y (float or np.array) : y-coordinate of the points at which to evaluate the 2p_z wavefunction.
-     z (float or np.array) : z-coordinate of the points at which to evaluate the 2p_z wavefunction.
+     x (float or np.array) : x-coordinate 
+     y (float or np.array) : y-coordinate 
+     z (float or np.array) : z-coordinate 
     
      Returns:
      float or np.array: Value of the 2p_z wavefunction at x,y,z
@@ -33,13 +33,13 @@ def random_overlap_pz(N,R):
 
     Returns:
     float: The result of the overlap integral 
+    float: The standard deviation of the integral
     """    
     np.random.seed(42)  #reproducibility
 
 #limits in the grid-use of symmetry to simplify integration
     a=0
     b=20
-
 
     x=np.random.uniform(a,b,N)
     y=np.random.uniform(a,b,N)   #create random distribution in the x,y,z grid
@@ -48,8 +48,10 @@ def random_overlap_pz(N,R):
     Y2pz_2=psi_2p_z(x,y,z+(R/2)) #shifting orbital to (0,0, R/2)
     integrand= Y2pz_1*Y2pz_2    #calculate integrand
     integral=np.mean(integrand)*(2*(b-a))**3 #calulate integral by symmetry  
+    variance=np.var(integrand)*(2*(b-a))**3
+    std_dev=(np.sqrt(variance))
 
-    return integral
+    return integral,std_dev
 
 def important_overlap_pz(N,R):
     """
@@ -60,7 +62,8 @@ def important_overlap_pz(N,R):
     R (int) : separation distance in atomic units
 
     Returns:
-    float: The result of the overlap integral 
+    float: The result of the overlap integral
+    float: The standard deviation 
     """  
     np.random.seed(42)  #reproducibility
     scale_Factor=10
@@ -73,7 +76,9 @@ def important_overlap_pz(N,R):
     numer= Y2pz_1*Y2pz_2
     denom=expon.pdf(x,scale=scale_Factor) * expon.pdf(y,scale=scale_Factor) * expon.pdf(z,scale=scale_Factor) #divide by exponential function 
     integrand=numer/denom
-    integral=np.mean(integrand)*(2**3) #calulate integral by symmetry  
-
-    return integral
+    integral=np.mean(integrand)*(2**3) #calulate integral by symmetry
+    variance=np.var(integrand)*(2)**3
+    std_dev=(np.sqrt(variance))
+  
+    return integral,std_dev
 
